@@ -5,7 +5,8 @@ Ateliers décloisonnés pour les techniciens 1 et 2
 ## Requirements
 
 * Visual studio 2019
-* C# `4.7.2`
+* .NET Framework `4.7.2`
+* C# `8`
 
 ## Documentation
 
