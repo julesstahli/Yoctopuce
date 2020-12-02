@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Yoctopuce.Sensors;
 
 namespace Yoctopuce
 {
@@ -15,6 +16,10 @@ namespace Yoctopuce
         public Main()
         {
             InitializeComponent();
+
+            // Test
+            Temperature temperatureSensor = new Temperature();
+            Console.WriteLine(temperatureSensor.ToString());
         }
     }
 }
