@@ -16,7 +16,11 @@ namespace Yoctopuce
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            string errsmg = "";
+            if (YAPI.RegisterHub("usb", ref errsmg) == YAPI.SUCCESS)
+                Application.Run(new Main());
+            else
+                MessageBox.Show("Init error:" + errsmg);
         }
     }
 }
