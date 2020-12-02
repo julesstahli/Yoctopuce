@@ -11,3 +11,5 @@ Visual studio 2019
 
 ## License
 [MIT](https://github.com/julesstahli/yoctopuce/blob/main/LICENSE)
+
+bonjour
