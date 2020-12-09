@@ -58,6 +58,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sensors\Humidity.cs" />
+    <Compile Include="Sensors\Pressure.cs" />
+    <Compile Include="Sensors\Sensor.cs" />
     <Compile Include="Sensors\Temperature.cs" />
     <Compile Include="Yocto\yocto_accelerometer.cs" />
     <Compile Include="Yocto\yocto_altitude.cs" />

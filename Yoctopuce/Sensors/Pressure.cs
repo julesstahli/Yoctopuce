@@ -1,9 +1,4 @@
-﻿// File: Yoctopuce\Sensors\Temperature.cs
-// Date: 2020-12-02
-// Authors: STAHLI Jules,
-// Version: 1.0
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +7,11 @@ using Yoctopuce.Exceptions;
 
 namespace Yoctopuce.Sensors
 {
-    public class Temperature : Sensor
+    class Pressure : Sensor 
     {
-
         // Constructors
 
-        public Temperature()
+        public Pressure()
         {
             hardwaredetect = 0;
             sensor = GetSensor();
@@ -35,7 +29,7 @@ namespace Yoctopuce.Sensors
             if (hardwaredetect == 0) YAPI.UpdateDeviceList(ref errmsg);
             hardwaredetect = (hardwaredetect + 1) % 20;
             YAPI.HandleEvents(ref errmsg);
-            YTemperature sensor = YTemperature.FirstTemperature();
+            YSensor sensor = YPressure.FirstPressure();
             if (sensor is null)
             {
                 throw new SensorNotDetectedException();
