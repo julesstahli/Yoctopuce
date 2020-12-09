@@ -10,6 +10,11 @@
 
 ## 09.12.2020
 
+* Création nouveau projet windows form
+* Tests capteur meteo
+* Réflexion accesibilité depuis le web
+* Début rédaction documentation technique
+
 ## 16.12.2020
 
 ## 23.12.2020
