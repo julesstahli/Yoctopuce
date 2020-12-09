@@ -2,7 +2,7 @@
 
 ## Introduction
 
-## Rappel ducahier des charges
+## Rappel du cahier des charges
  
 ### Objectifs
 
