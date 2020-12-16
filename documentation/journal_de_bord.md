@@ -17,6 +17,12 @@
 
 ## 16.12.2020
 
+* Installation d'un environnement de développement
+* Création d'un projet Lumen
+* Création de migration (base de données)
+* Création des modèles
+* Récupération de données test en base sur une page web
+
 ## 23.12.2020
 
 ## 13.01.2020
