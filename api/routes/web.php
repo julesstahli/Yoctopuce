@@ -19,19 +19,6 @@ $router->get('/', function () use ($router) {
 $router->get('/key', function() {
     return \Illuminate\Support\Str::random(32);
 });
-$router->get('/insert', function() {
-    $measure = new Measure();
-    $measure->temperature = 564.4674;
-    $measure->pression = 15.2561;
-    $measure->humidity = 87.516476;
-    $measure->brightness = 5.468764;
-    $measure->save();
-    return "success";
-});
-$router->get('/measure', function() {
-  $measures = [];
-  foreach (Measure::get() as $value) {
-    $measures[$value->id] = $value;
-  }
-  return $measures;
+$router->get('/measures', function() { 
+  return Measure::get();
 });
