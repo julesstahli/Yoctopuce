@@ -16,11 +16,22 @@ Insertion des données récupérés dans une base de donnée.
 
 Affichage des données sur une interface web.
 
-### Environnement 
+### Configuration
 
-SQL Server 2019
+aller sur : http://www.yoctopuce.com/FR/virtualhub.php
+télécharger l'installeur windows msi.
 
-Visual Studio 2019
+VirtualHub Control : Démarrer "Start" et ouvrir VirtualHub WebUI, Après l'opération sur WebUI, arrêter "Stop"
+VirtualHub WebUI : Cliquer sur le micro-contrôleur à mettre à jour "Configure",  "Upgrade", puis fermer WebUI
+
+### Environnement
+
+* Windows 10
+* MySQL Workbench 8.0 CE
+* Visual Studio 2019
+* Visual Studio Code / Atom / PHP Storm
+* Laragon
+* Typora
 
 ### Organisation
 
@@ -34,6 +45,10 @@ Jeremy Meissner - jeremy.mssnr@eduge.ch
 
 ### Livrable
 
+* Code source
+* Documentation technique
+* Journal de bord
+
 ## Etude d'opportunité
 
 ## Analyse de l'existant
@@ -45,6 +60,12 @@ Jeremy Meissner - jeremy.mssnr@eduge.ch
 ### Interfaces
 
 ## Analyse organique
+
+* Lumen (Laravel)
+* Plugin MySQL
+* Lumen JS
+* Bootstrap
+* Axios
 
 ### Architecture
 
