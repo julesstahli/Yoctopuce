@@ -25,6 +25,11 @@
 
 ## 23.12.2020
 
+* Mise en place de MySQL sur c#
+* Insertion des données depuis l'application c#
+* Création des vues avec Blade
+* Tentative d'ajout d'un graphique avec ApexChart sur la page Web
+
 ## 13.01.2020
 
 ## 20.01.2020
