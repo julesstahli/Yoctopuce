@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Yoctopuce.Sensors;
 
+using MySql.Data;
+using MySql.Data.MySqlClient;
+
 namespace Yoctopuce
 {
     public partial class Main : Form
@@ -24,6 +27,8 @@ namespace Yoctopuce
             temperatureSensor = new Temperature();
             humiditySensor = new Humidity();
             pressureSensor = new Pressure();
+
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -42,6 +47,30 @@ namespace Yoctopuce
                 lblPressure.Text = pressureSensor.ToString();
             else
                 lblPressure.Text = "OFFLINE";
+
+            insertMysql();
+        }
+        private void insertMysql()
+        {
+            string connStr = "server=localhost;user=yoctopuce;database=apiyoctopuce;port=3306;password=yoctopuce";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                Console.WriteLine("Connecting to MySQL...");
+                conn.Open();
+
+                string sql = $"INSERT INTO measures (temperature, pression, humidity, brightness) VALUES ({Convert.ToInt32(temperatureSensor.Value)}, {pressureSensor.Value}, {humiditySensor.Value}, 20)";
+                Console.WriteLine(sql);
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            conn.Close();
+            Console.WriteLine("Done.");
         }
     }
 }

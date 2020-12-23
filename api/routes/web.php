@@ -21,7 +21,7 @@ $router->get('/key', function() {
 });
 $router->get('/insert', function() {
     $measure = new Measure();
-    $measure->temperature = 35.51258;
+    $measure->temperature = 564.4674;
     $measure->pression = 15.2561;
     $measure->humidity = 87.516476;
     $measure->brightness = 5.468764;
