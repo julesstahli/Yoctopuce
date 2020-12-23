@@ -13,12 +13,19 @@ use App\Measure;
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+  return view("index");
 });
 
-$router->get('/key', function() {
+$router->group(["prefix" => "api"], function () use ($router) {
+
+  $router->get('/key', function() {
     return \Illuminate\Support\Str::random(32);
-});
-$router->get('/measures', function() {
-  return Measure::orderBy("created_at", "desc")->get();
+  });
+  $router->get('/measures', function() {
+    return Measure::orderBy("created_at", "desc")->get();
+  });
+  $router->get('/measure', function() {
+    return Measure::orderBy("created_at", "desc")->first();
+  });
+
 });
