@@ -22,6 +22,10 @@ namespace Yoctopuce
         public Main()
         {
             InitializeComponent();
+            System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+            customCulture.NumberFormat.NumberDecimalSeparator = ".";
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
 
             // Test
             temperatureSensor = new Temperature();
@@ -59,7 +63,7 @@ namespace Yoctopuce
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
 
-                string sql = $"INSERT INTO measures (temperature, pression, humidity, brightness) VALUES ({Convert.ToInt32(temperatureSensor.Value)}, {pressureSensor.Value}, {humiditySensor.Value}, 20)";
+                string sql = $"INSERT INTO measures (temperature, pression, humidity, brightness) VALUES ({temperatureSensor.Value}, {pressureSensor.Value}, {humiditySensor.Value}, 20)";
                 Console.WriteLine(sql);
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
