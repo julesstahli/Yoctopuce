@@ -36,7 +36,7 @@
     <!-- Initializer -->
     <script>
         Flatdoc.run({
-            fetcher: Flatdoc.github('julesstahli/Yoctopuce/documentation/api_doc.md')
+            fetcher: Flatdoc.github('julesstahli/Yoctopuce/documentation', 'api_doc.md')
         });
     </script>
 </head>
