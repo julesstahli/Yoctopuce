@@ -1,6 +1,8 @@
-# Yoctopuce api
+Yoctopuce api
+=============
 
-## Measures
+Measures
+--------
 
 ### /api/measures
 
