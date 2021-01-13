@@ -4,12 +4,6 @@
 
 ### /api/measures
 
-#### Params
-
-| Name | Value | Default |
-| --- | --- | --- |
-| limit | integer | null |
-
 ```javascript
 axios.get([endpoint]/api/measures?limit=50).then(data => {
   console.log(data);
@@ -17,3 +11,9 @@ axios.get([endpoint]/api/measures?limit=50).then(data => {
   console.error(error);
 });
 ```
+
+#### Params
+
+| Name | Value | Default |
+| --- | --- | --- |
+| limit | integer | null |
