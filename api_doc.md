@@ -43,7 +43,7 @@ curl_close($ch);
 
 Get last measure
 
-## /api/measures/average
+### /api/measures/average
 
 Get avaerage measures
 
