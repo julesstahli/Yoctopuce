@@ -17,6 +17,9 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(["prefix" => "api"], function () use ($router) {
+    $router->get('/', function(){
+        return view("api");
+    });
 
   $router->get('/key', function() {
     return \Illuminate\Support\Str::random(32);
