@@ -8,7 +8,7 @@ Measures
 
 Get multiple measures
 ```
-## Axios
+Javascript using Axios
 ```
 ```javascript
 axios.get([endpoint]/api/measures?limit=50).then(data => {
