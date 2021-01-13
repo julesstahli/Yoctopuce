@@ -43,6 +43,17 @@ curl_close($ch);
 
 Get last measure
 
+## /api/measures/average
+
+Get avaerage measures
+
+Params
+
+| Name | Value | Default |
+| --- | --- | --- |
+| from | datetime | null |
+| to | datetime | null |
+
 ## Temperature
 
 ### /api/temperature
