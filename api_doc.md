@@ -7,6 +7,15 @@ Measures
 ### /api/measures
 
 Get multiple measures
+
+Params
+
+| Name | Value | Default |
+| --- | --- | --- |
+| limit | integer | null |
+| from | datetime | null |
+| to | datetime | null |
+
 ```
 Javascript using Axios
 ```
@@ -17,14 +26,6 @@ axios.get("[endpoint]/api/measures?limit=50&from=2020-01-13 00:00:00&to=2020-02-
   console.error(error);
 });
 ```
-
-Params
-
-| Name | Value | Default |
-| --- | --- | --- |
-| limit | integer | null |
-| from | datetime | null |
-| to | datetime | null |
 
 ### /api/measure
 
