@@ -32,6 +32,10 @@
 
 ## 13.01.2020
 
+* Ajout d'un tableau pour ranger les données
+* Ajout de la documentation de l'api
+* Bug, l'ajout d'une scroll-bar sur la page web est a revoir
+
 ## 20.01.2020
 
 ## 27.01.2020
