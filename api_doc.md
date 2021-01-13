@@ -7,7 +7,9 @@ Measures
 ### /api/measures
 
 Get multiple measures
-
+```html
+<h2>Axios</h2>
+```
 ```javascript
 axios.get([endpoint]/api/measures?limit=50).then(data => {
   console.log(data);
