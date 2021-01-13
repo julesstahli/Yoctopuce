@@ -19,7 +19,7 @@ Params
 ```
 Javascript using Axios
 ```
-```javascript
+``` javascript
 axios.get("[endpoint]/api/measures?limit=50&from=2020-01-13 00:00:00&to=2020-02-13 00:00:00").then(data => {
   console.log(data);
 }, error => {
@@ -30,7 +30,7 @@ axios.get("[endpoint]/api/measures?limit=50&from=2020-01-13 00:00:00&to=2020-02-
 ```
 PHP
 ```
-```php
+``` php
 <?php
 $ch = curl_init(); 
 curl_setopt($ch, CURLOPT_URL, "[endpoint]/api/measures?limit=50&from=2020-01-13 00:00:00&to=2020-02-13 00:00:00"); 
