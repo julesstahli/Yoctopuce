@@ -56,7 +56,7 @@ namespace Yoctopuce
         }
         private void insertMysql()
         {
-            string connStr = "server=localhost;user=yoctopuce;database=apiyoctopuce;port=3306;password=yoctopuce";
+            string connStr = "server=localhost;user=root;database=yoctopuce;port=3306;password=";
             MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
