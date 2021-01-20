@@ -18,7 +18,22 @@ class MeasuresController extends Controller
     }
 
     public function all(Request $request){
-        return Measure::orderBy("created_at", "desc")->get();
+        $this->validate($request, [
+            'limit' => 'nullable|numeric',
+            'from' => 'nullable|date',
+            'to' => 'nullable|date'
+        ]);
+        $query = Measure::orderBy("created_at", "desc");
+        if ($request->has('limit')) {
+             $query = $query->limit($request->input('limit'));
+        }
+        if ($request->has('from')) {
+            $query = $query->whereDate('created_at', '>', $request->input('from'));
+        }
+        if ($request->has('to')) {
+            $query = $query->whereDate('created_at', '<', $request->input('to'));
+        }
+        return $query->get();
     }
 
     public function last(){
