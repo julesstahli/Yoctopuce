@@ -20,15 +20,13 @@ $router->group(["prefix" => "api"], function () use ($router) {
     $router->get('/', function(){
         return view("api");
     });
-
-  $router->get('/key', function() {
-    return \Illuminate\Support\Str::random(32);
-  });
-  $router->get('/measures', function() {
-    return Measure::orderBy("created_at", "desc")->get();
-  });
-  $router->get('/measure', function() {
-    return Measure::orderBy("created_at", "desc")->first();
-  });
+  $router->get('/measures', 'MeasuresController@all');
+  $router->get('/measure', 'MeasuresController@last');
 
 });
+
+if (env('APP_DEBUG', false)) {
+    $router->get('/key', function() {
+        return \Illuminate\Support\Str::random(32);
+    });
+}
