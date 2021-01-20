@@ -22,7 +22,10 @@ class MeasuresController extends Controller
             'limit' => 'nullable|numeric',
             'offset' => 'nullable|numeric',
             'from' => 'nullable|date',
-            'to' => 'nullable|date'
+            'to' => 'nullable|date',
+            'pression' => 'nullable|boolean',
+            'humidity' => 'nullable|boolean',
+            'brightness' => 'nullable|boolean'
         ]);
         $query = Measure::orderBy("created_at", "desc");
         if ($request->has('limit')) {
@@ -36,6 +39,22 @@ class MeasuresController extends Controller
         }
         if ($request->has('to')) {
             $query = $query->whereDate('created_at', '<', $request->input('to'));
+        }
+        if ($request->has('pression') || $request->has('humidity') || $request->has('brightness')) {
+            $pression = $request->input('pression');
+            $humidity = $request->input('humidity');
+            $brightness = $request->input('brightness');
+            $exluded = [];
+            if ($pression !== null && $pression == '0') {
+                $exluded[] = $pression;
+            }
+            if ($humidity !== null && $humidity == '0') {
+                $exluded[] = $humidity;
+            }
+            if ($brightness !== null && $brightness == '0') {
+                $exluded[] = $brightness;
+            }
+            $query = $query->exclude($exluded);
         }
         return $query->get();
     }
