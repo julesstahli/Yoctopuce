@@ -46,13 +46,13 @@ class MeasuresController extends Controller
             $brightness = $request->input('brightness');
             $exluded = [];
             if ($pression !== null && $pression == '0') {
-                $exluded[] = $pression;
+                $exluded[] = 'pression';
             }
             if ($humidity !== null && $humidity == '0') {
-                $exluded[] = $humidity;
+                $exluded[] = 'humidity';
             }
             if ($brightness !== null && $brightness == '0') {
-                $exluded[] = $brightness;
+                $exluded[] = 'brightness';
             }
             $query = $query->exclude($exluded);
         }
