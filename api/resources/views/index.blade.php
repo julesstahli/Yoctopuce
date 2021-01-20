@@ -8,25 +8,20 @@
 
 @section('content')
 
-  <div class="container h-100">
-    <div class="row h-100">
-      <table id="tbl" class="table table-striped h-50">
-        <tr>
-          <th scope="col">Température</th>
-          <th scope="col">Luminosité</th>
-          <th scope="col">Humidité</th>
-          <th scope="col">Pression</th>
-          <th scope="col">Date de mesure</th>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
-    </div>
+<div class="row">
+  <table class="table is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th scope="col">Température</th>
+      <th scope="col">Luminosité</th>
+      <th scope="col">Humidité</th>
+      <th scope="col">Pression</th>
+      <th scope="col">Date de mesure</th>
+    </tr>
+    </thead>
+    <tbody id="tbl">
+    </tbody>
+  </table>
   </div>
   <script type="text/javascript">
 

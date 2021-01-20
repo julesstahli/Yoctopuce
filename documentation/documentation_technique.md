@@ -57,6 +57,10 @@ Jeremy Meissner - jeremy.mssnr@eduge.ch
 
 ### Fonctionnalités
 
+#### Lecture de données
+
+#### Import de données
+
 ### Interfaces
 
 ## Analyse organique
@@ -64,8 +68,8 @@ Jeremy Meissner - jeremy.mssnr@eduge.ch
 * Lumen (Laravel)
 * Plugin MySQL
 * Lumen JS
-* Bootstrap
 * Axios
+* Bulma
 
 ### Architecture
 
