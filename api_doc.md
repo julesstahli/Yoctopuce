@@ -3,10 +3,18 @@ Yoctopuce api
 
 Measures
 --------
+Params
 
-Basic Flatdoc module.
-
-The main entry point is `Flatdoc.run()`, which invokes the [Runner].
+| Name | Value | Default |
+| --- | --- | --- |
+| fromID | numeric | null |
+| limit | numeric | null |
+| offset | numeric | 0 |
+| from | datetime | null |
+| to | datetime | null |
+| pression | boolean | 1 |
+| humidity | boolean | 1 |
+| brightness | boolean | 1 |
 
 ``` javascript
 axios.get("[endpoint]/api/measures?limit=50&from=2020-01-13 00:00:00&to=2020-02-13 00:00:00").then(data => {
