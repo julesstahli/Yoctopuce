@@ -19,6 +19,7 @@ class MeasuresController extends Controller
 
     public function all(Request $request){
         $this->validate($request, [
+            'fromID' => 'nullable|numeric',
             'limit' => 'nullable|numeric',
             'offset' => 'nullable|numeric',
             'from' => 'nullable|date',
@@ -28,6 +29,9 @@ class MeasuresController extends Controller
             'brightness' => 'nullable|boolean'
         ]);
         $query = Measure::orderBy("created_at", "desc");
+        if ($request->has('fromID')) {
+            $query = $query->where('id', '>', $request->input('fromID'));
+       }
         if ($request->has('limit')) {
              $query = $query->limit($request->input('limit'));
         }
