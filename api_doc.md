@@ -9,9 +9,9 @@ Measures
 Get multiple measures
 
 Les lignes :
-* Pression
-* humidity
-* Brightness
+* Pression 
+* Humidity 
+* Brightness 
 
 sont désaffichable.
 
