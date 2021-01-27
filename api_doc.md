@@ -12,9 +12,14 @@ Params
 
 | Name | Value | Default |
 | --- | --- | --- |
-| limit | integer | null |
+| fromID | numeric | null |
+| limit | numeric | null |
+| offset | numeric | 0 |
 | from | datetime | null |
 | to | datetime | null |
+| pression | boolean | 1 |
+| humidity | boolean | 1 |
+| brightness | boolean | 1 |
 
 ```
 Javascript using Axios
@@ -38,19 +43,3 @@ $data = curl_exec($ch);
 curl_close($ch); 
 ```
 
-### /api/measures/average
-
-Get avaerage measures
-
-Params
-
-| Name | Value | Default |
-| --- | --- | --- |
-| fromID | numeric | null |
-| limit | numeric | null |
-| offset | numeric | 0 |
-| from | datetime | null |
-| to | datetime | null |
-| pression | boolean | 1 |
-| humidity | boolean | 1 |
-| brightness | boolean | 1 |
