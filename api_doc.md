@@ -9,18 +9,10 @@ Measures
 Get multiple measures
 
 <ul>
-  <li>LALA</li>
-  <li>LOLO</li>
+  <li>Pression</li>
+  <li>Humidity</li>
+  <li>Brightness</li>
 </ul>
-
-Les lignes :
-* Pression 
-* Humidity 
-* Brightness 
-
-sont désaffichable.
-
-fromID permet de séléctionner les mesures à partir d'un id choisi.
 
 ``` javascript
 axios.get("[endpoint]/api/measures?limit=50&from=2020-01-13 00:00:00&to=2020-02-13 00:00:00").then(data => {
