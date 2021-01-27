@@ -7,7 +7,7 @@ Measures
 ### /api/measures
 
 Get multiple measures
-
+<p>
 * fromID
  Retourne une liste de valeurs depuis un id choisi.
 
@@ -16,6 +16,7 @@ Get multiple measures
 * Humidity
 * Brightness
  sont des champs pouvant être caché.
+ </p>
 
 ``` javascript
 axios.get("[endpoint]/api/measures?limit=50&from=2020-01-13 00:00:00&to=2020-02-13 00:00:00").then(data => {
