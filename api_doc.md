@@ -8,14 +8,14 @@ Measures
 
 Get multiple measures
 <p>
-* fromID
- Retourne une liste de valeurs depuis un id choisi.
-
- Les champs suivants
-* Pression
-* Humidity
-* Brightness
- sont des champs pouvant être caché.
+<br> ▪ fromID
+<br> Retourne une liste de valeurs depuis un id choisi.
+<br>
+<br> Les champs suivants
+<br> ▪ Pression
+<br> ▪ Humidity
+<br> ▪ Brightness
+<br> sont des champs pouvant être caché.
  </p>
 
 ``` javascript
