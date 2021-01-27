@@ -29,6 +29,7 @@
   setInterval(() => {
     axios.get("/api/measure").then(response => {
       let tr = document.createElement("tr");
+      let tbl = document.getElementById("tbl");
 
       for(let dataName of ["temperature", "brightness", "humidity", "pression", "created_at"]){
         let td = document.createElement("td");
@@ -36,7 +37,10 @@
         tr.appendChild(td);
       }
       console.log(tr);
-      document.getElementById("tbl").appendChild(tr);
+      tbl.insertBefore(tr, tbl.firstChild);
+      if (tbl.rows.length > 9) {
+        tbl.lastElementChild.remove();
+      }
     });
 
   }, 1000);
