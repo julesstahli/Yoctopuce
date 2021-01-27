@@ -9,13 +9,13 @@ Measures
 Get multiple measures
 
 <br> ▪ fromID
-Retourne une liste de valeurs depuis un id choisi.
-
-Les champs suivants
+<br> Retourne une liste de valeurs depuis un id choisi.
+<br>
+<br> Les champs suivants
 <br> ▪ Pression
 <br> ▪ Humidity
 <br> ▪ Brightness
-sont des champs pouvant être caché.
+<br> sont des champs pouvant être caché.
 
 Salut
 
