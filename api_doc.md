@@ -17,8 +17,6 @@ Get multiple measures
 <br> ▪ Brightness
 <br> sont des champs pouvant être caché.
 
-Salut
-
 ``` javascript
 axios.get("[endpoint]/api/measures?limit=50&from=2020-01-13 00:00:00&to=2020-02-13 00:00:00").then(data => {
   console.log(data);
