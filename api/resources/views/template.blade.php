@@ -9,9 +9,9 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <div class="container">
     @yield('content')
-    </div>   
+    </div>
   </body>
 </html>

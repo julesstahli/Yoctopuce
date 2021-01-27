@@ -26,9 +26,10 @@ class MeasuresController extends Controller
             'to' => 'nullable|date',
             'pression' => 'nullable|boolean',
             'humidity' => 'nullable|boolean',
-            'brightness' => 'nullable|boolean'
+            'brightness' => 'nullable|boolean',
+            'order' => ['nullable', 'regex:/^(desc)|(asc)$/i']
         ]);
-        $query = Measure::orderBy("created_at", "desc");
+        $query = Measure::orderBy("created_at", ($request->has('order') &&  $request->input('order') == 'desc') ? 'asc' : 'desc');
         if ($request->has('fromID')) {
             $query = $query->where('id', '>', $request->input('fromID'));
        }
