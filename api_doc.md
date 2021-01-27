@@ -1,6 +1,31 @@
 Yoctopuce api
 =============
 
+Basic Flatdoc module.
+
+The main entry point is `Flatdoc.run()`, which invokes the [Runner].
+
+```js
+Flatdoc.run({
+  fetcher: Flatdoc.github('rstacruz/backbone-patterns');
+});
+```
+
+These fetcher functions are available:
+
+```js
+Flatdoc.github('owner/repo')
+Flatdoc.github('owner/repo', 'API.md')
+Flatdoc.github('owner/repo', 'API.md', 'branch')
+Flatdoc.bitbucket('owner/repo')
+Flatdoc.bitbucket('owner/repo', 'API.md')
+Flatdoc.bitbucket('owner/repo', 'API.md', 'branch')
+Flatdoc.file('http://path/to/url')
+Flatdoc.file([ 'http://path/to/url', ... ])
+```
+
+
+
 Measures
 --------
 
