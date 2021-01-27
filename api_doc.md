@@ -38,11 +38,6 @@ $data = curl_exec($ch);
 curl_close($ch); 
 ```
 
-
-### /api/measure
-
-Get last measure
-
 ### /api/measures/average
 
 Get avaerage measures
@@ -51,17 +46,11 @@ Params
 
 | Name | Value | Default |
 | --- | --- | --- |
+| fromID | numeric | null |
+| limit | numeric | null |
+| offset | numeric | 0 |
 | from | datetime | null |
 | to | datetime | null |
-
-## Temperature
-
-### /api/temperature
-
-## Humidity
-
-### /api/humidity
-
-## Pressure
-
-### /api/pressure
+| pression | boolean | 1 |
+| humidity | boolean | 1 |
+| brightness | boolean | 1 |
