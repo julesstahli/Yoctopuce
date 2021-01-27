@@ -15,6 +15,8 @@ Les lignes :
 
 sont désaffichable.
 
+fromID permet de séléctionner les mesures à partir d'un id choisi.
+
 ``` javascript
 axios.get("[endpoint]/api/measures?limit=50&from=2020-01-13 00:00:00&to=2020-02-13 00:00:00").then(data => {
   console.log(data);
