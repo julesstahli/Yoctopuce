@@ -8,19 +8,6 @@ Measures
 
 Get multiple measures
 
-Params
-
-| Name | Value | Default |
-| --- | --- | --- |
-| fromID | numeric | null |
-| limit | numeric | null |
-| offset | numeric | 0 |
-| from | datetime | null |
-| to | datetime | null |
-| pression | boolean | 1 |
-| humidity | boolean | 1 |
-| brightness | boolean | 1 |
-
 ```
 Javascript using Axios
 ```
@@ -42,4 +29,19 @@ curl_setopt($ch, CURLOPT_URL, "[endpoint]/api/measures?limit=50&from=2020-01-13 
 $data = curl_exec($ch); 
 curl_close($ch); 
 ```
+
+Params
+
+| Name | Value | Default |
+| --- | --- | --- |
+| fromID | numeric | null |
+| limit | numeric | null |
+| offset | numeric | 0 |
+| from | datetime | null |
+| to | datetime | null |
+| pression | boolean | 1 |
+| humidity | boolean | 1 |
+| brightness | boolean | 1 |
+
+
 
