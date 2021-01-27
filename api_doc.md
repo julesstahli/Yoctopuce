@@ -8,6 +8,11 @@ Measures
 
 Get multiple measures
 
+<ul>
+  <li>LALA</li>
+  <li>LOLO</li>
+</ul>
+
 Les lignes :
 * Pression 
 * Humidity 
