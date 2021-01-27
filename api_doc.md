@@ -8,11 +8,12 @@ Measures
 
 Get multiple measures
 
-Du code à droite montre quelque chose
-hefbhkedakflaewlfkjewalfe
-Abnticonstitutionnellement
-jfaihfjewdhjfjdasfkjl
-Boisson
+Les lignes :
+* Pression
+* humidity
+* Brightness
+
+sont désaffichable.
 
 ``` javascript
 axios.get("[endpoint]/api/measures?limit=50&from=2020-01-13 00:00:00&to=2020-02-13 00:00:00").then(data => {
