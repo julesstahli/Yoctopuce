@@ -2,6 +2,8 @@
 
 ## Introduction
 
+Dans le cadre de l'atelier technicien 1ère et 2ème année, nous avons été mandaté pour réaliser une station météo à l'aide de modules Yoctopuce.
+
 ## Rappel du cahier des charges
 
 ### Objectifs
@@ -51,8 +53,6 @@ Jeremy Meissner - jeremy.mssnr@eduge.ch
 
 ## Etude d'opportunité
 
-## Analyse de l'existant
-
 ## Analyse fonctionnelle
 
 ### Fonctionnalités
@@ -63,13 +63,36 @@ Jeremy Meissner - jeremy.mssnr@eduge.ch
 
 ### Interfaces
 
+Tableau de données
+
+Graphique
+
 ## Analyse organique
+
+### Technologie
 
 * Lumen (Laravel)
 * Plugin MySQL
-* Lumen JS
 * Axios
 * Bulma
+* Slate
+* ChartJS
+
+### Backend
+
+#### Application C#
+
+L'application récupère les données des capteurs et l'insère dans une base de données
+
+#### Serveur web (php)
+
+Renvoie des pages web pour la visualisation des données ou du JSON pour les données de l'API.
+
+### Frontend
+
+* La page index.php
+  * Affiche les données sous forme de tableau et de graphique.
+* La page ...
 
 ### Architecture
 
