@@ -45,7 +45,16 @@
 
 ## 27.01.2021
 
+* Ajout de ChartJS pour les graphique
+* Faire un alignement de bloc de code sur FlatDoc
+* Changement de librairie => MarkedJS
+* Revenu sur FlatDoc
+
 ## 03.02.2021
+
+* Changement de librairie => Intégration de Slate
+* Ajouter d'autres graphiques et fixer des bugs
+* Avancer la documentation technique
 
 ## 10.02.2021
 
