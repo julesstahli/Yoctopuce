@@ -22,115 +22,119 @@
       <tbody id="tbl">
       </tbody>
     </table>
-    <div class="">
-      <canvas id="temperatureChart" width="400" height="400"></canvas>
-      <canvas id="humidityChart" width="400" height="400"></canvas>
-
-    </div>
+    <div id="parentTemperature"></div>
+    <div id="parentHumidity"></div>
+    <div id="parentPression"></div>
   </div>
   <script type="text/javascript">
   let chartList = [];
 
+  class YoctoChart {
+    static chart;
+    constructor(parentId, name, stepSize, backgroundColor, borderColor, width, height) {
 
-  let temperatureContext = document.getElementById('temperatureChart').getContext('2d');
-  let temperatureChart = new Chart(temperatureContext, {
-    type: 'line',
-    data: {
-      lineColor : "#fffff",
-      datasets: [{
-        label: 'temperature',
-        backgroundColor: 'rgba(210, 210, 210, 0.25)',
-        borderColor: 'rgba(210, 210, 210)',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      maintainAspectRatio: false,
-      scales: {
-        yAxes: [{
-          ticks: {
-            suggestedMin: 20,
-            suggestedMax: 25,
-            stepSize: 1
+      // Créer le canvas
+      let temp = document.createElement("canvas");
+
+      // Mettre l'id au canvas
+      temp.id = name;
+
+      // Ajout du canvas créé en amont dans le parent
+      document.getElementById(parentId).appendChild(temp);
+
+      // Récupérer le context
+      let context = document.getElementById(name).getContext('2d');
+
+      // Créer la chart
+      this.chart = new Chart(context, {
+        type: 'line',
+        data: {
+          lineColor : "#fffff",
+          datasets: [{
+            label: name,
+            backgroundColor: backgroundColor,
+            borderColor: borderColor,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          scales: {
+            yAxes: [{
+              ticks: {
+                stepSize: stepSize
+              }
+            }]
           }
-        }]
+        }
+      });
+      // Changement de la taille de la chart
+      this.chart.canvas.parentNode.style.width = width;
+      this.chart.canvas.parentNode.style.height = height;
+    }
+
+    AddLabel(date, shift=true) {
+      date = new Date(date);
+      // Ajoute le label en dessous, la date de la dernière mesure (ajoute a droite dans la chart)
+      this.chart.data.labels.push(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+      if (shift) {
+        // Supprime le label de la date tout a gauche (ca permet de garder un nombre constant d'informations dans la chart)
+        this.chart.data.labels.shift();
       }
     }
-  });
 
-  let humidityContext = document.getElementById('humidityChart').getContext('2d');
-  let humidityChart = new Chart(humidityContext, {
-    type: 'line',
-    data: {
-      lineColor : "#fffff",
-      datasets: [{
-        label: 'humidity',
-        backgroundColor: 'rgba(175, 175, 210, 0.25)',
-        borderColor: 'rgba(175, 175, 210)',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      maintainAspectRatio: false,
-      scales: {
-        yAxes: [{
-          ticks: {
-            suggestedMin: 20,
-            suggestedMax: 25,
-            stepSize: 1
-          }
-        }]
-      }
+    AddData(data, shift=true) {
+      this.chart.data.datasets.forEach((dataset) => {
+        // Ajoute la valeur de la dernière mesure tout a gauche
+        dataset.data.push(data);
+        if (shift) {
+          // Enlève la valeur a droite de la chart
+          dataset.data.shift();
+        }
+      });
     }
-  });
 
-  // Implementation de la chart en HTML
-  temperatureChart.canvas.parentNode.style.width = '50%';
-  temperatureChart.canvas.parentNode.style.height = '400px';
-
-  humidityChart.canvas.parentNode.style.width = '50%';
-  humidityChart.canvas.parentNode.style.height = '400px';
-
-  chartList.push(temperatureChart);
-
-  // Fonction qui ajoute de la data dans la chart
-  function addData(chart, label, data) {
-    chart.data.labels.push(label);
-    chart.data.datasets.forEach((dataset) => {
-      dataset.data.push(data);
-    });
-    chart.update();
+    Initiate(date, data) {
+      // Ajoute la date et la data (valeur)
+      this.AddData(data, false);
+      this.AddLabel(date, false);
+      //this.chart.options.scales.yAxes[0]["ticks"].suggestedMin = data*1;
+      //this.chart.options.scales.yAxes[0]["ticks"].suggestedMax = data*1;
+    }
+    Update() {
+      // Mettre à jour la chart
+      this.chart.update();
+    }
   }
+
+  // Creation des charts
+  let temperature = new YoctoChart("parentTemperature", "temperature", 1, 'rgba(210, 210, 210, 0.25)', 'rgba(210, 210, 210)', '50%', '500px');
+  let humidity = new YoctoChart("parentHumidity", "humidity", 1, 'rgba(175, 175, 210, 0.25)', 'rgba(175, 175, 210)', '50%', '500px');
+  let pression = new YoctoChart("parentPression", "pression", 1, 'rgba(210, 175, 175, 0.25)', 'rgba(210, 175, 175)', '50%', '500px');
 
   // Ajoute les derniers 60 query dans la chart lors du chargement de la page
   axios.get("/api/measures?limit=20").then(response => {
+    let date;
     response.data.reverse();
     response.data.forEach((data) => {
-      let date = new Date(data["created_at"]);
-      addData(temperatureChart, `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`, data["temperature"]);
-      addData(humidityChart, `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`, data["humidity"]);
+      date = new Date(data["created_at"]);
+
+      // Ajouter la date et la data à chaque fois dans chaques charts
+      humidity.Initiate(date, data["humidity"]);
+      temperature.Initiate(date, data["temperature"]);
+      pression.Initiate(date, data["pression"]);
+
     });
-    temperatureChart.options.scales.yAxes[0]["ticks"].suggestedMin = response.data[0]["temperature"]*1;
-    temperatureChart.options.scales.yAxes[0]["ticks"].suggestedMax = response.data[0]["temperature"]*1;
-
-    humidityChart.options.scales.yAxes[0]["ticks"].suggestedMin = response.data[0]["humidity"]*1;
-    humidityChart.options.scales.yAxes[0]["ticks"].suggestedMax = response.data[0]["humidity"]*1;
   });
-
-
 
   let measureBefore;
 
   // Chaque seconde, ajouter la dernière mesure de la base de donnée
   setInterval(() => {
-
     // Recupere la dernière mesure de la base de donnée
     axios.get("/api/measure").then(response => {
-
       // Tester si la valeur a été ajouté juste avant
       if (measureBefore != response.data["id"]) {
-
-
 
         // Prend la table actuel
         let tbl = document.getElementById("tbl");
@@ -152,7 +156,6 @@
         // Ajoute au début du tableau le <tr> créé juste au dessus
         tbl.insertBefore(tr, tbl.firstChild);
 
-
         // Si le tableau a plus de 1 ligne, enlever la dernière (permet de garder le plus récent uniquement à chaque fois)
         if (tbl.rows.length > 1) {
           tbl.lastElementChild.remove();
@@ -161,34 +164,23 @@
         // Converti la date de la base de donnée en un format utilisable (format JS)
         let date = new Date(response.data["created_at"]);
 
-        // Ajoute le label en bas de la date de la dernière mesure (ajoute a droite dans la chart)
-        temperatureChart.data.labels.push(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
-        humidityChart.data.labels.push(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+        // Ajoute les labels aux charts
+        temperature.AddLabel(date);
+        humidity.AddLabel(date);
+        pression.AddLabel(date);
 
-        // Supprime le label de la date tout a gauche (ca permet de garder un nombre constant d'informations dans la chart)
-        temperatureChart.data.labels.shift();
-        humidityChart.data.labels.shift();
+        // Ajoute les données aux charts
+        temperature.AddData(response.data["temperature"]);
+        humidity.AddData(response.data["humidity"]);
+        pression.AddData(response.data["pression"]);
 
-        // Ajoute la valeur de la dernière mesure tout a gauche et enlève celle à droite
-        temperatureChart.data.datasets.forEach((dataset) => {
-          dataset.data.push(response.data["temperature"]);
-          dataset.data.shift();
-        });
-
-        humidityChart.data.datasets.forEach((dataset) => {
-          dataset.data.push(response.data["humidity"]);
-          dataset.data.shift();
-        });
-
-        // Met à jour l'affichage de la chart
-        temperatureChart.update();
-        humidityChart.update();
+        // Met à jour l'affichage des charts
+        temperature.Update();
+        humidity.Update();
+        pression.Update();
       }
       measureBefore = response.data["id"];
     });
-
-
   }, 1000);
-
   </script>
 @endsection
