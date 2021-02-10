@@ -13,7 +13,6 @@
       <thead>
         <tr>
           <th scope="col">Température</th>
-          <th scope="col">Luminosité</th>
           <th scope="col">Humidité</th>
           <th scope="col">Pression</th>
           <th scope="col">Date de mesure</th>
@@ -35,7 +34,7 @@
   let pression = new YoctoChart("parentPression", "pression", 1, 'rgba(210, 175, 175, 0.25)', 'rgba(210, 175, 175)', '50%', '500px');
 
   // Ajoute les derniers 60 query dans la chart lors du chargement de la page
-  axios.get("/api/measures?limit=20").then(response => {
+  axios.get("/api/measures?limit=30").then(response => {
     let date;
     response.data.reverse();
     response.data.forEach((data) => {
@@ -64,7 +63,7 @@
         // Créer un <tr>
         let tr = document.createElement("tr");
 
-        for(let dataName of ["temperature", "brightness", "humidity", "pression", "created_at"]){
+        for(let dataName of ["temperature", "humidity", "pression", "created_at"]){
           // Creer un nouveau cellule dans le <tr> du tableau
           let td = document.createElement("td");
 

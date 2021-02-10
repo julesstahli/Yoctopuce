@@ -18,7 +18,6 @@ class CreateMeasuresTable extends Migration
             $table->decimal("temperature", 20, 10);
             $table->decimal("pression", 20, 10);
             $table->decimal("humidity", 20, 10);
-            $table->decimal("brightness", 20, 10);
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
