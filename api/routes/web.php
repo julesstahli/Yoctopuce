@@ -22,7 +22,6 @@ $router->group(["prefix" => "api"], function () use ($router) {
     });
   $router->get('/measures', 'MeasuresController@all');
   $router->get('/measure', 'MeasuresController@last');
-
 });
 
 if (env('APP_DEBUG', false)) {
