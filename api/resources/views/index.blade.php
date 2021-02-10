@@ -21,17 +21,19 @@
       <tbody id="tbl">
       </tbody>
     </table>
-    <div id="parentTemperature"></div>
-    <div id="parentHumidity"></div>
-    <div id="parentPression"></div>
+    <div class="charts">
+      <div id="parentTemperature"></div>
+      <div id="parentHumidity"></div>
+      <div id="parentPression"></div>
+    </div>
   </div>
   <script src="./javascripts/YoctoChart.js" charset="utf-8"></script>
   <script type="text/javascript">
 
   // Creation des charts
-  let temperature = new YoctoChart("parentTemperature", "temperature", 1, 'rgba(210, 210, 210, 0.25)', 'rgba(210, 210, 210)', '50%', '500px');
-  let humidity = new YoctoChart("parentHumidity", "humidity", 1, 'rgba(175, 175, 210, 0.25)', 'rgba(175, 175, 210)', '50%', '500px');
-  let pression = new YoctoChart("parentPression", "pression", 1, 'rgba(210, 175, 175, 0.25)', 'rgba(210, 175, 175)', '50%', '500px');
+  let temperature = new YoctoChart("parentTemperature", "temperature", 1, 'rgba(210, 210, 210, 0.25)', 'rgba(210, 210, 210)', '100%', '400px');
+  let humidity = new YoctoChart("parentHumidity", "humidity", 1, 'rgba(175, 175, 210, 0.25)', 'rgba(175, 175, 210)', '100%', '400px');
+  let pression = new YoctoChart("parentPression", "pression", 1, 'rgba(210, 175, 175, 0.25)', 'rgba(210, 175, 175)', '100%', '400px');
 
   // Ajoute les derniers 60 query dans la chart lors du chargement de la page
   axios.get("/api/measures?limit=30").then(response => {
