@@ -58,12 +58,18 @@
 
 ## 10.02.2021
 
-## 17.02.2021
+* Ajout d'une table historique, regroupant par heure la moyenne des mesures de chaque jours
+* Ajout de filtre de données sur la table measure (Suppression après 30 jours)
+* Changement de la disposition des graphiques
 
 ## 24.02.2021
+
+* Mise à jour de la documentation de l'API
 
 ## 03.03.2021
 
 ## 10.03.2021
 
 ## 17.03.2021
+
+Présentation 

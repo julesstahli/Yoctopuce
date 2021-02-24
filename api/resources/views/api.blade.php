@@ -319,6 +319,38 @@
                   <li>
                     <a href="#get-all-measures" class="toc-h2 toc-link" data-title="Get all measures">Get all measures</a>
                   </li>
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#get-last-measure" class="toc-h2 toc-link" data-title="Get last measure">Get last measure</a>
+                  </li>
+                  <li>
+                    <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#history" class="toc-h1 toc-link" data-title="History">History</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-history" class="toc-h2 toc-link" data-title="Get all history">Get all history</a>
+                  </li>
+                  <li>
+                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters-2" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#get-last-history" class="toc-h2 toc-link" data-title="Get last history">Get last history</a>
+                  </li>
+                  <li>
+                    <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -338,7 +370,7 @@
 <p>We have language bindings in PHP, Javascript, and Elixir! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 <h1 id='authentication'>Authentication</h1>
 <p>Yoctopuce project doesn&#39;t uses API keys to allow access to the API.</p>
-<h1 id='measures'>Measures</h1><h2 id='get-all-measures'>Get all measures</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<h1 id='measures'>Measures</h1><h3 id='get-all-measures'>Get all measures</h3><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span> 
 <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"[endpoint]/api/measures?limit=3"</span><span class="p">);</span> 
 <span class="nv">$data</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span> 
@@ -456,6 +488,129 @@
 <aside class="notice">
 Measures are updated every 5 seconds
 </aside>
+<h3 id='get-last-measure'>Get last measure</h3>
+<p>This endpoint return the last measure.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://yoctopuce.test/api/measure</code></p>
+<h1 id='history'>History</h1><h3 id='get-all-history'>Get all history</h3><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span> 
+<span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="no">CURLOPT_URL</span><span class="p">,</span> <span class="s2">"[endpoint]/api/history?limit=3"</span><span class="p">);</span> 
+<span class="nv">$data</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span> 
+<span class="k">echo</span> <span class="nv">$data</span><span class="p">;</span>
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// By using axios</span>
+<span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">[endpoint]/api/history?limit=3</span><span class="dl">"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">},</span> <span class="nx">error</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight elixir tab-elixir"><code><span class="c1"># By using HTTPoison</span>
+<span class="s2">"[endpoint]/api/history?limit=3"</span>
+<span class="o">|&gt;</span> <span class="no">HTTPoison</span><span class="o">.</span><span class="n">get!</span>
+<span class="o">|&gt;</span> <span class="no">IO</span><span class="o">.</span><span class="n">inpect</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pression"</span><span class="p">:</span><span class="w"> </span><span class="mf">16.542</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"humidity"</span><span class="p">:</span><span class="w"> </span><span class="mf">32.928</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.602</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-27 00:00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pression"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.973</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"humidity"</span><span class="p">:</span><span class="w"> </span><span class="mf">29.754</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.782</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-27 00:00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pression"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.878</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"humidity"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.435</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mf">17.987</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-27 00:00:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all history of measures.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://yoctopuce.test/api/history</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fromID</td>
+<td>numeric</td>
+<td>null</td>
+<td>Return all measures from the specified ID</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>numeric</td>
+<td>null</td>
+<td>Limit the number of results</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>numeric</td>
+<td>0</td>
+<td>Offset on results</td>
+</tr>
+<tr>
+<td>from</td>
+<td>datetime</td>
+<td>null</td>
+<td>From specified date</td>
+</tr>
+<tr>
+<td>to</td>
+<td>datetime</td>
+<td>null</td>
+<td>To specified date</td>
+</tr>
+<tr>
+<td>pression</td>
+<td>boolean</td>
+<td>1</td>
+<td>If false exclude pression from results</td>
+</tr>
+<tr>
+<td>humidity</td>
+<td>boolean</td>
+<td>1</td>
+<td>If false exclude humidity from results</td>
+</tr>
+<tr>
+<td>brightness</td>
+<td>boolean</td>
+<td>1</td>
+<td>If false exclude brightness from results</td>
+</tr>
+<tr>
+<td>order</td>
+<td>string</td>
+<td>desc</td>
+<td>asc or desc</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+History is updated every day
+</aside>
+<h3 id='get-last-history'>Get last history</h3>
+<p>This endpoint return the last history of measures.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET http://yoctopuce.test/api/history/last</code></p>
 <h1 id='errors'>Errors</h1>
 <p>The Kittn API uses the following error codes:</p>
 
