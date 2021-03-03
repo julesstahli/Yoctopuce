@@ -8,23 +8,69 @@
 
 @section('content')
 
-  <div class="row">
-    <table class="table is-striped is-fullwidth">
-      <thead>
-        <tr>
-          <th scope="col">Température</th>
-          <th scope="col">Humidité</th>
-          <th scope="col">Pression</th>
-          <th scope="col">Date de mesure</th>
-        </tr>
-      </thead>
-      <tbody id="tbl">
-      </tbody>
-    </table>
-    <div class="charts">
-      <div id="parentTemperature"></div>
-      <div id="parentHumidity"></div>
-      <div id="parentPression"></div>
+  <div class="dashboard">
+    <div class="dashboard_charts">
+      <div class="chart">
+        <div class="chart_infos">
+          <h1 class="chart_infos_title">Temperature</h1>
+        </div>
+        <div id="parentTemperature"></div>
+      </div>
+      <div class="chart">
+        <div class="chart_infos">
+          <h1 class="chart_infos_title">Pressure</h1>
+        </div>
+        <div id="parentPression"></div>
+      </div>
+      <div class="chart">
+        <div class="chart_infos">
+          <h1 class="chart_infos_title">Humidity</h1>
+        </div>
+        <div id="parentHumidity"></div>
+      </div>
+    </div>
+    <div class="dashboard_infos">
+      <div class="dashboard_infos_cardcontainer">
+        <div class="card">
+          <h1 class="card_title">Real time <span>Sensors</span></h1>
+          <span class="card_update">Updated now</span>
+          <div class="card_databox">
+            <div class="card_databox_data">
+              <img class="card_databox_data_icon" src="./images/Drop.svg" alt="Drop Icon">
+              <span id="dataHumidity" class="card_databox_data_text">20<span>%</span></span>
+            </div>
+            <div class="card_databox_data">
+              <img class="card_databox_data_icon" src="./images/cloud.svg" alt="Drop Icon">
+              <span id="dataPressure" class="card_databox_data_text">2500 <span>mbar</span></span>
+            </div>
+            <div class="card_databox_data">
+              <img class="card_databox_data_icon" src="./images/Drop.svg" alt="Drop Icon">
+              <span id="dataTemperature" class="card_databox_data_text">23<span>°C</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h1 class="card_title"><span>Sensors</span> Status</h1>
+          <span class="card_update">1 module connected</span>
+          <div class="card_statusbox">
+            <div class="card_statusbox_status">
+              <i id="statusicon" class="card_statusbox_status_icon noanimation"></i><span id="statustext" class="card_statusbox_status_text">Weather module</span>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h1 class="card_title">Log Activity</h1>
+          <div id="logbox" class="card_logbox">
+          </div>
+        </div>
+        <div class="card-git">
+          <h1 class="card_title">Check out our GitHub repository</h1>
+          <a class="card_button" href="https://github.com/julesstahli/Yoctopuce" target="_blank" rel="nofollow noreferrer">
+            <img class="card_button_icon" src="./images/GitHub.svg" alt="GitHub Icon">
+            Go to Github
+          </a>
+        </div>
+      </div>
     </div>
   </div>
   <script src="./javascripts/YoctoChart.js" charset="utf-8"></script>
@@ -58,12 +104,16 @@
     axios.get("/api/measure").then(response => {
       // Tester si la valeur a été ajouté juste avant
       if (measureBefore != response.data["id"]) {
-
+        let statusIcon = document.getElementById("statusicon");
+        statusIcon.style.backgroundColor = "#47D266";
+        statusIcon.classList.remove('noanimation');
+        /*
         // Prend la table actuel
         let tbl = document.getElementById("tbl");
 
         // Créer un <tr>
         let tr = document.createElement("tr");
+
 
         for(let dataName of ["temperature", "humidity", "pression", "created_at"]){
           // Creer un nouveau cellule dans le <tr> du tableau
@@ -74,8 +124,16 @@
 
           // Ajoute le <td> dans le <tr>
           tr.appendChild(td);
-        }
 
+
+        }
+        */
+
+        document.getElementById("dataHumidity").innerHTML = Math.round(response.data["humidity"]) + "<span>%</span>";
+        document.getElementById("dataPressure").innerHTML = Math.round(response.data["pression"]) + " <span>mbar</span>";
+        document.getElementById("dataTemperature").innerHTML = Math.round(response.data["temperature"]) + "<span>°C</span>";
+
+        /*
         // Ajoute au début du tableau le <tr> créé juste au dessus
         tbl.insertBefore(tr, tbl.firstChild);
 
@@ -83,9 +141,19 @@
         if (tbl.rows.length > 1) {
           tbl.lastElementChild.remove();
         }
-
+        */
         // Converti la date de la base de donnée en un format utilisable (format JS)
         let date = new Date(response.data["created_at"]);
+        let logbox = document.getElementById('logbox');
+        if (logbox.children.length > 3) {
+          logbox.firstChild.remove();
+        }
+        document.getElementById('logbox').innerHTML +=
+        `<div class="card_logbox_log">
+          <p class="card_logbox_log_title">Retrieve 3 data from the database</p>
+          <span class="card_logbox_log_date">${String(date.getHours()).padStart(2, '0')}h${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}</span>
+        </div>`;
+
 
         // Ajoute les labels aux charts
         temperature.AddLabel(date);
@@ -101,6 +169,11 @@
         temperature.Update();
         humidity.Update();
         pression.Update();
+      }
+      else {
+        let statusIcon = document.getElementById("statusicon");
+        statusIcon.style.backgroundColor = "#C72E2E";
+        statusIcon.classList.add('noanimation');
       }
       measureBefore = response.data["id"];
     });

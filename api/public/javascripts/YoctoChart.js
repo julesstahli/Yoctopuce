@@ -31,7 +31,7 @@ class YoctoChart {
           display: false
         },
         title:{
-          display:true,
+          display:false,
           text: name
         },
         maintainAspectRatio: false,
@@ -52,7 +52,7 @@ class YoctoChart {
   AddLabel(date, shift=true) {
     date = new Date(date);
     // Ajoute le label en dessous, la date de la dernière mesure (ajoute a droite dans la chart)
-    this.chart.data.labels.push(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
+    this.chart.data.labels.push(`${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}`);
     if (shift) {
       // Supprime le label de la date tout a gauche (ca permet de garder un nombre constant d'informations dans la chart)
       this.chart.data.labels.shift();
