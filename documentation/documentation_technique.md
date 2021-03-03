@@ -47,6 +47,7 @@ Jeremy Meissner - jeremy.mssnr@eduge.ch
 
 ### Livrable
 
+* Présentation
 * Code source
 * Documentation technique
 * Journal de bord
@@ -71,8 +72,8 @@ Graphique
 
 ### Technologie
 
-* Lumen (Laravel)
-* Plugin MySQL
+* Lumen (Laravel): Framework php
+* Plugin MySQL: 
 * Axios
 * Bulma
 * Slate
