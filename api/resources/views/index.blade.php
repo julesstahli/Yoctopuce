@@ -82,12 +82,11 @@
   let pression = new YoctoChart("parentPression", "pression", 1, 'rgba(210, 175, 175, 0.25)', 'rgba(210, 175, 175)', '100%', '400px');
 
   // Ajoute les derniers 60 query dans la chart lors du chargement de la page
-  axios.get("/api/measures?limit=30").then(response => {
+  axios.get("/api/history?limit=30").then(response => {
     let date;
     response.data.reverse();
     response.data.forEach((data) => {
-      date = new Date(data["created_at"]);
-
+      date = new Date(data["date"]);
       // Ajouter la date et la data à chaque fois dans chaques charts
       humidity.Initiate(date, data["humidity"]);
       temperature.Initiate(date, data["temperature"]);
@@ -154,7 +153,7 @@
           <span class="card_logbox_log_date">${String(date.getHours()).padStart(2, '0')}h${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}</span>
         </div>`;
 
-
+/*
         // Ajoute les labels aux charts
         temperature.AddLabel(date);
         humidity.AddLabel(date);
@@ -164,11 +163,12 @@
         temperature.AddData(response.data["temperature"]);
         humidity.AddData(response.data["humidity"]);
         pression.AddData(response.data["pression"]);
-
+*/
         // Met à jour l'affichage des charts
         temperature.Update();
         humidity.Update();
         pression.Update();
+
       }
       else {
         let statusIcon = document.getElementById("statusicon");

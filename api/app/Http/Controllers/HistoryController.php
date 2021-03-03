@@ -29,7 +29,7 @@ class HistoryController extends Controller
             'brightness' => 'nullable|boolean',
             'order' => ['nullable', 'regex:/^(desc)|(asc)$/i']
         ]);
-        $query = History::orderBy("created_at", ($request->has('order') &&  $request->input('order') == 'desc') ? 'asc' : 'desc');
+        $query = History::orderBy("date", ($request->has('order') &&  $request->input('order') == 'desc') ? 'asc' : 'desc');
         if ($request->has('fromID')) {
             $query = $query->where('id', '>', $request->input('fromID'));
        }
