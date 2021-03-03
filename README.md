@@ -1,7 +1,5 @@
 # Yoctopuce
-<div class="logo-container" style="text-align: center;">
-  <img src="https://www.yoctopuce.com/img/yoctopuce-logo.png" alt="logo" />
-</div>
+<img src="https://www.yoctopuce.com/img/yoctopuce-logo.png" alt="logo" />
 
 Ateliers décloisonnés pour les techniciens 1 et 2
 
