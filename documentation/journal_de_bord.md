@@ -69,6 +69,9 @@
 
 ## 03.03.2021
 
+* Mise à jour de la documentation technique
+* Création de la présentation
+
 ## 10.03.2021
 
 ## 17.03.2021
