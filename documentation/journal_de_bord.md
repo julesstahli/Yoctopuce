@@ -64,6 +64,7 @@
 
 ## 24.02.2021
 
+* Ajout d'une route pour récupérer les mesures de la table history
 * Mise à jour de la documentation de l'API
 
 ## 03.03.2021
