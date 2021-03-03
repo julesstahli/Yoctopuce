@@ -34,6 +34,7 @@ VirtualHub WebUI : Cliquer sur le micro-contrôleur à mettre à jour "Configure
 * Visual Studio Code / Atom / PHP Storm
 * Laragon
 * Typora
+* VirtualHub
 
 ### Organisation
 
@@ -73,11 +74,11 @@ Graphique
 ### Technologie
 
 * Lumen (Laravel): Framework php
-* Plugin MySQL: 
-* Axios
-* Bulma
-* Slate
-* ChartJS
+* Plugin MySQL: Connexion à une base MySQL en C#
+* Axios: Ajax
+* Bulma: Framework CSS
+* Slate: Documentation de  l'api
+* ChartJS: Graphique en Javascript
 
 ### Backend
 
