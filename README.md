@@ -1,18 +1,21 @@
 # Yoctopuce
+<div class="logo-container" style="text-align: center;">
+  <img src="https://www.yoctopuce.com/img/yoctopuce-logo.png" alt="logo" />
+</div>
 
 Ateliers décloisonnés pour les techniciens 1 et 2
 
 ## Requirements
 
-* Visual studio 2019
+* [Visual studio 2019](https://visualstudio.microsoft.com/fr/)
 * .NET Framework `4.7.2`
-* C# `8`
-* Apache web server
-* MySQL database
-* Composer
-* Ruby `2.7.2`
+* [C#](https://docs.microsoft.com/en-us/dotnet/csharp/) `8`
+* [Apache web server](https://httpd.apache.org/)
+* [MySQL database](https://www.mysql.com/fr/)
+* [Composer](https://getcomposer.org/)
+* [Ruby](https://www.ruby-lang.org/fr/) `2.7.2`
 * Bundle
-* NodeJS `15.6`
+* [NodeJS](https://nodejs.org/en/) `15.6`
 * Npm `7.6`
 
 ---
@@ -74,6 +77,7 @@ Ateliers décloisonnés pour les techniciens 1 et 2
 ## Documentation
 
 * [Documentation technique](https://github.com/julesstahli/Yoctopuce/blob/master/documentation/documentation_technique.md)
+* [Documentation utilisateur](https://github.com/julesstahli/Yoctopuce/blob/master/documentation/documentation_utilisateur.md)
 * [Journal de bord](https://github.com/julesstahli/Yoctopuce/blob/master/documentation/journal_de_bord.md)
 
 ## Project wiki
