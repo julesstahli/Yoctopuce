@@ -15,6 +15,8 @@ Ateliers décloisonnés pour les techniciens 1 et 2
 * NodeJS `15.6`
 * Npm `7.6`
 
+---
+
 * [Get Visual Studio](https://visualstudio.microsoft.com/fr/vs/)
 * [Get Laragon](https://laragon.org/download/)
 * [Get Composer](https://getcomposer.org/download/)
