@@ -19,6 +19,7 @@ Ateliers décloisonnés pour les techniciens 1 et 2
 ### C#
 1. Open Yoctopuce.sln with Visual studio 2019
 2. Click on "Rebuild project" in the VIsual Studio menu
+3. Set the MySQL login in the **Main.cs:59** file
 
 ### APi
 1. In the api directory
