@@ -46,6 +46,10 @@ Ateliers décloisonnés pour les techniciens 1 et 2
 1. In the api_doc directory
 2. Execute `bundle install`
 
+### Yoctopuce sensor
+
+You can use [VirtualHub](https://www.yoctopuce.com/FR/virtualhub.php) to fix sensors compatibility
+
 ## Build
 
 ### Development
