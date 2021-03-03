@@ -70,6 +70,8 @@
 ## 03.03.2021
 
 * Mise à jour de la documentation technique
+* Mise à jour readme
+* Création documentation utilisateur
 * Création de la présentation
 
 ## 10.03.2021
