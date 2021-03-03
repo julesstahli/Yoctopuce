@@ -96,5 +96,73 @@ Renvoie des pages web pour la visualisation des données ou du JSON pour les don
 * La page ...
 
 ### Architecture
+```
+├───api
+│   ├───app
+│   │   ├───Console
+│   │   │   └───Commands
+│   │   ├───Events
+│   │   ├───Exceptions
+│   │   ├───Http
+│   │   │   ├───Controllers
+│   │   │   └───Middleware
+│   │   ├───Jobs
+│   │   ├───Listeners
+│   │   └───Providers
+│   ├───bootstrap
+│   ├───database
+│   │   ├───factories
+│   │   ├───migrations
+│   │   └───seeds
+│   ├───public
+│   │   ├───css
+│   │   ├───fonts
+│   │   ├───images
+│   │   ├───javascripts
+│   │   └───stylesheets
+│   ├───resources
+│   │   └───views
+│   ├───routes
+│   ├───storage
+│   │   ├───app
+│   │   ├───framework
+│   │   │   ├───cache
+│   │   │   │   └───data
+│   │   │   └───views
+│   │   └───logs
+│   ├───tests
+│   └───vendor
+├───api_doc
+│   ├───.github
+│   │   ├───ISSUE_TEMPLATE
+│   │   └───workflows
+│   ├───build
+│   │   ├───fonts
+│   │   ├───images
+│   │   ├───javascripts
+│   │   └───stylesheets
+│   ├───lib
+│   └───source
+│       ├───fonts
+│       ├───images
+│       ├───includes
+│       ├───javascripts
+│       │   ├───app
+│       │   └───lib
+│       ├───layouts
+│       └───stylesheets
+├───documentation
+└───Yoctopuce
+    ├───bin
+    │   ├───Debug
+    │   └───Release
+    ├───Exceptions
+    ├───obj
+    │   ├───Debug
+    │   │   └───TempPE
+    │   └───Release
+    ├───Properties
+    ├───Sensors
+    └───Yocto
+```
 
-## Tests
