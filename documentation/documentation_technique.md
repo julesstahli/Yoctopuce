@@ -97,60 +97,74 @@ L'application récupère les données des capteurs et l'insère dans une base de
 
 Renvoie des pages web pour la visualisation des données ou du JSON pour les données de l'API.
 
+##### Vues
+
+* index.blade.php
+  * Affiche les données sous forme de tableau et de graphique.
+* api.blade.php
+  * Contient la documentation de l'api
+* template.blade.php
+  * Contenu propre à toutes les pages du site (sauf la documentation de l'api)
+
 ### Frontend
 
-* La page index.php
-  * Affiche les données sous forme de tableau et de graphique.
-* La page ...
+#### Routes
+
+|Protocol|Endpoint|Description|
+|---|---|---|
+| GET | / | Retourne la vue sur les données |
+| GET | /api | Retourne la documentation de l'api |
+
+> Pour les routes de l'api _voir dans la documentation de l'api_
 
 ### Architecture
 ```
-├───api
+├───api ==> Partie Web de l'application
 │   ├───app
 │   │   ├───Console
-│   │   │   └───Commands
+│   │   │   └───Commands ==> Contient les commandes php du projet
 │   │   ├───Events
 │   │   ├───Exceptions
 │   │   ├───Http
-│   │   │   ├───Controllers
-│   │   │   └───Middleware
+│   │   │   ├───Controllers ==> Contient les controlleurs du projet
+│   │   │   └───Middleware ==> Contient les middlewares du projet
 │   │   ├───Jobs
 │   │   ├───Listeners
 │   │   └───Providers
 │   ├───bootstrap
 │   ├───database
 │   │   ├───factories
-│   │   ├───migrations
+│   │   ├───migrations ==> Contient les migrations du projet
 │   │   └───seeds
-│   ├───public
+│   ├───public ==> Contient la partie accessible depuis le web du projet
 │   │   ├───css
 │   │   ├───fonts
 │   │   ├───images
 │   │   ├───javascripts
 │   │   └───stylesheets
-│   ├───resources
+│   ├───resources ==> Contient les vues blade du projet
 │   │   └───views
-│   ├───routes
+│   ├───routes ==> Contient les routes du projet
 │   ├───storage
 │   │   ├───app
 │   │   ├───framework
 │   │   │   ├───cache
 │   │   │   │   └───data
 │   │   │   └───views
-│   │   └───logs
+│   │   └───logs ==> Contient les logs de l'application
 │   ├───tests
 │   └───vendor
-├───api_doc
+├───api_doc ==> Contient la documentation de l'api
 │   ├───.github
 │   │   ├───ISSUE_TEMPLATE
 │   │   └───workflows
-│   ├───build
+│   ├───build ==> Contient la rendu final de la documentation
 │   │   ├───fonts
 │   │   ├───images
 │   │   ├───javascripts
 │   │   └───stylesheets
 │   ├───lib
-│   └───source
+│   └───source ==> Contient les resources pour construire la documentation
 │       ├───fonts
 │       ├───images
 │       ├───includes
@@ -159,18 +173,18 @@ Renvoie des pages web pour la visualisation des données ou du JSON pour les don
 │       │   └───lib
 │       ├───layouts
 │       └───stylesheets
-├───documentation
-└───Yoctopuce
+├───documentation ==> Contient la documentation du projet
+└───Yoctopuce ==> Contient le code c# de l'application (Lecture des données des capteurs)
     ├───bin
     │   ├───Debug
     │   └───Release
-    ├───Exceptions
+    ├───Exceptions ==> Contient les différents type d'exceptions de l'application
     ├───obj
     │   ├───Debug
     │   │   └───TempPE
     │   └───Release
     ├───Properties
-    ├───Sensors
-    └───Yocto
+    ├───Sensors ==> Contient les casses propre à la lecture des données des capteurs
+    └───Yocto ==> Contient la librairie Yoctopuce
 ```
 
