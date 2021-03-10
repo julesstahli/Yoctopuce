@@ -66,6 +66,7 @@
 
 * Ajout d'une route pour récupérer les mesures de la table history
 * Mise à jour de la documentation de l'API
+* Mise à jour de l'interface web
 
 ## 03.03.2021
 
@@ -75,6 +76,10 @@
 * Création de la présentation
 
 ## 10.03.2021
+
+* Terminer la présentation PowerPoint
+* Terminer la documentation utilisateur
+* Terminer la documentation technique
 
 ## 17.03.2021
 
