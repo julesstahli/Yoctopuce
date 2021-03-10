@@ -66,6 +66,8 @@
 
 * Ajout d'une route pour récupérer les mesures de la table history
 * Mise à jour de la documentation de l'API
+* Création de la maquette du site sur Figma
+* Début de la réalisation du front-end du site
 
 ## 03.03.2021
 
@@ -73,6 +75,7 @@
 * Mise à jour readme
 * Création documentation utilisateur
 * Création de la présentation
+* Finissions sur la réalisation du front-end du site 
 
 ## 10.03.2021
 
