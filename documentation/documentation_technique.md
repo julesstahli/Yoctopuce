@@ -71,11 +71,11 @@ Effacement des données vieilles de plus d'un mois et sauvegarde des moyennes pa
 
 #### Api
 
-Données accessible via une api
+Données accessible via une api _(voir documentation de l'api)_
 
-#### Interfaces
+#### Interfaces Web
 
-Vue sur les données en direct et sur l'historique des données via une interace web.
+Vue en direct sur les données et sur l'historique via une interace web.
 
 ## Analyse organique
 
@@ -84,7 +84,6 @@ Vue sur les données en direct et sur l'historique des données via une interace
 * Lumen (Laravel): Framework php
 * Plugin MySQL: Connexion à une base MySQL en C#
 * Axios: Ajax
-* Bulma: Framework CSS
 * Slate: Documentation de  l'api
 * ChartJS: Graphique en Javascript
 
