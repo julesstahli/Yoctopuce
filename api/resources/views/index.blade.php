@@ -44,7 +44,7 @@
               <span id="dataPressure" class="card_databox_data_text">2500 <span>mbar</span></span>
             </div>
             <div class="card_databox_data">
-              <img class="card_databox_data_icon" src="./images/Drop.svg" alt="Drop Icon">
+              <img class="card_databox_data_icon" src="./images/Fire.svg" alt="Drop Icon">
               <span id="dataTemperature" class="card_databox_data_text">23<span>°C</span></span>
             </div>
           </div>

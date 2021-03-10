@@ -25,6 +25,7 @@ body, html {
   display: flex;
   flex-direction: column;
   padding: 32px;
+  overflow: auto;
 }
 .chart_infos {
   display: flex;
