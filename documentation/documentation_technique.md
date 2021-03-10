@@ -106,9 +106,7 @@ Renvoie des pages web pour la visualisation des données ou du JSON pour les don
 * template.blade.php
   * Contenu propre à toutes les pages du site (sauf la documentation de l'api)
 
-### Frontend
-
-#### Routes
+##### Routes
 
 |Protocol|Endpoint|Description|
 |---|---|---|
@@ -116,6 +114,31 @@ Renvoie des pages web pour la visualisation des données ou du JSON pour les don
 | GET | /api | Retourne la documentation de l'api |
 
 > Pour les routes de l'api _voir dans la documentation de l'api_
+
+##### Middlewares
+
+###### CorsMiddleware
+
+Ajoute les headers:
+* Access-Control-Allow-Origin
+* Access-Control-Allow-Methods
+* Access-Control-Allow-Credentials
+* Access-Control-Max-Age
+* Access-Control-Allow-Headers
+
+> Sur toutes les routes
+
+##### Controllers
+
+###### HistoryController
+
+all: Retourne toutes les données des capteurs
+last: Retourne la dernière mesure du capteur
+
+###### MeasuresController
+
+all: Retourne toutes les données des capteurs
+last: Retourne la dernière mesure du capteur
 
 ### Architecture
 ```
