@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="Exceptions\SensorNotDetectedException.cs" />
     <Compile Include="Exceptions\SensorOfflineException.cs" />
     <Compile Include="Main.cs">
