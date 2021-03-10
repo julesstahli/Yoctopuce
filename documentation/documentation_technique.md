@@ -53,21 +53,29 @@ Jeremy Meissner - jeremy.mssnr@eduge.ch
 * Documentation technique
 * Journal de bord
 
-## Etude d'opportunité
-
 ## Analyse fonctionnelle
 
 ### Fonctionnalités
 
 #### Lecture de données
 
-#### Import de données
+Lecture des données provenant d'un ou plusieurs capteurs Yoctopuce.
 
-### Interfaces
+#### Import des données
 
-Tableau de données
+Stockage dans une base de donéées des informations récupérées depuis les capteurs
 
-Graphique
+#### Historique
+
+Effacement des données vieilles de plus d'un mois et sauvegarde des moyennes par heure dans un historique
+
+#### Api
+
+Données accessible via une api
+
+#### Interfaces
+
+Vue sur les données en direct et sur l'historique des données via une interace web.
 
 ## Analyse organique
 
