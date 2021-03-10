@@ -92,7 +92,13 @@
       temperature.Initiate(date, data["temperature"]);
       pression.Initiate(date, data["pression"]);
 
+
     });
+    let logbox = document.getElementById('logbox');
+    while (logbox.children.length > 3) {
+      logbox.firstChild.remove();
+      console.log(logbox.children.length);
+    }
   });
 
   let measureBefore;
@@ -101,6 +107,7 @@
   setInterval(() => {
     // Recupere la dernière mesure de la base de donnée
     axios.get("/api/measure").then(response => {
+
       // Tester si la valeur a été ajouté juste avant
       if (measureBefore != response.data["id"]) {
         let statusIcon = document.getElementById("statusicon");
@@ -115,68 +122,74 @@
 
 
         for(let dataName of ["temperature", "humidity", "pression", "created_at"]){
-          // Creer un nouveau cellule dans le <tr> du tableau
-          let td = document.createElement("td");
+        // Creer un nouveau cellule dans le <tr> du tableau
+        let td = document.createElement("td");
 
-          // Ajoute la valeur de la requete à l'api dans le <td> créé précédement
-          td.innerHTML = response.data[dataName];
+        // Ajoute la valeur de la requete à l'api dans le <td> créé précédement
+        td.innerHTML = response.data[dataName];
 
-          // Ajoute le <td> dans le <tr>
-          tr.appendChild(td);
+        // Ajoute le <td> dans le <tr>
+        tr.appendChild(td);
 
-
-        }
-        */
-
-        document.getElementById("dataHumidity").innerHTML = Math.round(response.data["humidity"]) + "<span>%</span>";
-        document.getElementById("dataPressure").innerHTML = Math.round(response.data["pression"]) + " <span>mbar</span>";
-        document.getElementById("dataTemperature").innerHTML = Math.round(response.data["temperature"]) + "<span>°C</span>";
-
-        /*
-        // Ajoute au début du tableau le <tr> créé juste au dessus
-        tbl.insertBefore(tr, tbl.firstChild);
-
-        // Si le tableau a plus de 1 ligne, enlever la dernière (permet de garder le plus récent uniquement à chaque fois)
-        if (tbl.rows.length > 1) {
-          tbl.lastElementChild.remove();
-        }
-        */
-        // Converti la date de la base de donnée en un format utilisable (format JS)
-        let date = new Date(response.data["created_at"]);
-        let logbox = document.getElementById('logbox');
-        if (logbox.children.length > 3) {
-          logbox.firstChild.remove();
-        }
-        document.getElementById('logbox').innerHTML +=
-        `<div class="card_logbox_log">
-          <p class="card_logbox_log_title">Retrieve 3 data from the database</p>
-          <span class="card_logbox_log_date">${String(date.getHours()).padStart(2, '0')}h${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}</span>
-        </div>`;
-
-/*
-        // Ajoute les labels aux charts
-        temperature.AddLabel(date);
-        humidity.AddLabel(date);
-        pression.AddLabel(date);
-
-        // Ajoute les données aux charts
-        temperature.AddData(response.data["temperature"]);
-        humidity.AddData(response.data["humidity"]);
-        pression.AddData(response.data["pression"]);
-*/
-        // Met à jour l'affichage des charts
-        temperature.Update();
-        humidity.Update();
-        pression.Update();
 
       }
-      else {
-        let statusIcon = document.getElementById("statusicon");
-        statusIcon.style.backgroundColor = "#C72E2E";
-        statusIcon.classList.add('noanimation');
-      }
-      measureBefore = response.data["id"];
-    });
-  }, 1000);
-  </script>
+      */
+
+      document.getElementById("dataHumidity").innerHTML = Math.round(response.data["humidity"]) + "<span>%</span>";
+      document.getElementById("dataPressure").innerHTML = Math.round(response.data["pression"]) + " <span>mbar</span>";
+      document.getElementById("dataTemperature").innerHTML = Math.round(response.data["temperature"]) + "<span>°C</span>";
+
+      /*
+      // Ajoute au début du tableau le <tr> créé juste au dessus
+      tbl.insertBefore(tr, tbl.firstChild);
+
+      // Si le tableau a plus de 1 ligne, enlever la dernière (permet de garder le plus récent uniquement à chaque fois)
+      if (tbl.rows.length > 1) {
+      tbl.lastElementChild.remove();
+    }
+    */
+    // Converti la date de la base de donnée en un format utilisable (format JS)
+    let date = new Date(response.data["created_at"]);
+
+    let logbox = document.getElementById('logbox');
+
+    logbox.innerHTML +=
+    `<div class="card_logbox_log">
+    <p class="card_logbox_log_title">Retrieve 3 data from the database</p>
+    <span class="card_logbox_log_date">${String(date.getHours()).padStart(2, '0')}h${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}</span>
+    </div>`;
+
+    while (logbox.children.length > 3) {
+      logbox.firstChild.remove();
+      console.log(logbox.children.length);
+    }
+
+
+
+    /*
+    // Ajoute les labels aux charts
+    temperature.AddLabel(date);
+    humidity.AddLabel(date);
+    pression.AddLabel(date);
+
+    // Ajoute les données aux charts
+    temperature.AddData(response.data["temperature"]);
+    humidity.AddData(response.data["humidity"]);
+    pression.AddData(response.data["pression"]);
+    */
+    // Met à jour l'affichage des charts
+    temperature.Update();
+    humidity.Update();
+    pression.Update();
+
+  }
+  else {
+    let statusIcon = document.getElementById("statusicon");
+    statusIcon.style.backgroundColor = "#C72E2E";
+    statusIcon.classList.add('noanimation');
+  }
+  measureBefore = response.data["id"];
+});
+}, 1000);
+</script>
 @endsection

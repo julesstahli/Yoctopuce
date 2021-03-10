@@ -10,8 +10,8 @@ namespace Yoctopuce
     {
         public const string DB_HOST= "localhost";
         public const string DB_PORT= "3306";
-        public const string DB_NAME= "yoctopuce";
-        public const string DB_USER= "root";
-        public const string DB_PASSWORD= "";
+        public const string DB_NAME= "apiyoctopuce";
+        public const string DB_USER= "yoctopuce";
+        public const string DB_PASSWORD= "yoctopuce";
     }
 }

@@ -167,19 +167,13 @@ body, html {
     box-shadow: 0px 0px 8px rgba(71, 210, 102, 0.75);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-.charts {
-  display: grid;
-  grid-template-columns: 50% 50%;
+@media only screen and (max-width: 850px) {
+  .dashboard {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 24px;
+  }
+  .dashboard_infos {
+    margin-bottom: 64px;
+  }
 }
